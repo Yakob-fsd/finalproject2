@@ -1,0 +1,31 @@
+<div class="card-header">
+  <h3>Login</h3>
+</div>
+
+
+
+
+<div class="bg-img">
+  <form class="form col-md-06" #userlogin="ngForm" (ngSubmit)="userVerify()">
+    <h3 style="text-align: center; color: royalblue;">Login Now...!</h3>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" [(ngModel)]="User.username" name="username" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" pattern="^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3})?$" required>
+      <small class="text-danger" [class.d-none]="email.valid || email.touched">Enter valid mail Id</small>
+    </div>
+  <br>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" [(ngModel)]="User.password" name="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" minlength="6" required>
+    <small class="text-danger" [class.d-none]="password.valid || password.touched">Should contain atleast 6 Characters</small>
+  </div>
+  <br>
+  <button class="btn btn-primary" [disabled]="userlogin.form.invalid">Login</button>
+  </form>
+</div>
+
+<div class="card-footer">
+  <h3 style="text-align: center; color: black;">ICT Academy of Kerala</h3>
+  <p style="text-align: center; color: black;">A joint venture by Govt.of Kerala to promote and support <br>
+    information technology development</p>
+</div>
